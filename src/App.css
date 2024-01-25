@@ -8,8 +8,7 @@
 
 body {
   margin: 0;
-  /* background: linear-gradient(to righr, blue,  green); */
-  background-color: aqua
+  background: linear-gradient(to right, rgb(14, 200, 233),  rgb(50, 231, 50));
 }
 
 .calculator-grid {

@@ -29,7 +29,7 @@ function reducer(state, { type, payload }) {
       }
       return {
         ...state,
-        currentOperand: `${state.currentOperand || ""} ${payload.digit}`,
+        currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       }
     case ACTION.CHOOSE_OPERATION:
       if (state.currentOperand == null &&
@@ -104,7 +104,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
     case "*":
       computation = prev * current
       break
-    case "%":
+    case "÷":
       computation = prev / current
       break
     case "-":
@@ -135,10 +135,10 @@ function App() {
   return (
     <div className="calculator-grid">
       <div className="output">
-        {/* <div className="previous-operand">{formatOperand(previousOperand)}{operation}</div>
-        <div className="current-operand">{formatOperand(currentOperand)}</div> */}
-        <div className="previous-operand">{previousOperand}{operation}</div>
-        <div className="current-operand">{currentOperand}</div>
+        <div className="previous-operand">{formatOperand(previousOperand)}{operation}</div>
+        <div className="current-operand">{formatOperand(currentOperand)}</div>
+        {/* <div className="previous-operand">{previousOperand}{operation}</div>
+        <div className="current-operand">{currentOperand}</div> */}
       </div>
       <button className='span-two'
         onClick={() => dispatch({ type: ACTION.CLEAR })}
@@ -157,7 +157,7 @@ function App() {
       <DigitButton digit="4" dispatch={dispatch} />
       <DigitButton digit="5" dispatch={dispatch} />
       <DigitButton digit="6" dispatch={dispatch} />
-      <OperationButton operation="/" dispatch={dispatch} />
+      <OperationButton operation="÷" dispatch={dispatch} />
       <DigitButton digit="7" dispatch={dispatch} />
       <DigitButton digit="8" dispatch={dispatch} />
       <DigitButton digit="9" dispatch={dispatch} />
